@@ -18,8 +18,9 @@ class Histogram(dict):
 def counter(shared):
     #Poslednym a zaroven najefektivnejsim bolo pridanie locku este pred while.
     #Kedze je zamok uzamknuty, druhe vlakno musi cakat na dokoncenie toho vlakna,
-    #ktore ho uzamklo. Nedochazda tu k zbytocnemu spomaleniu kvoli cyklu,
-    #kedze vlakno caka este pred nim. Ospravedlnujem sa, ako to je hodene na github
+    #ktore ho uzamklo. Nedochazda tu k spomaleniu kvoli cyklu,
+    #kedze vlakno caka este pred nim. Z pohladu paralelneho je toto riesenie asi nu-li-tne (teda pokial to dobre chapem)
+    #Ospravedlnujem sa, ako to je hodene na github
     #no musim sa s tym naucit nejako robit. Nabuduce to snad bude lepsie.
     shared.mutex.lock()
     while True:
